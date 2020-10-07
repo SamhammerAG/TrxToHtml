@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrxToHtml", "TrxToHtml\TrxToHtml.csproj", "{0605B968-753C-42BD-98B6-AF98D9443969}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrxToHtml.Test", "TrxToHtml.Test\TrxToHtml.Test.csproj", "{80200111-3CAE-4186-A6AD-64824868754B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrxToHtml.Test", "TrxToHtml.Test\TrxToHtml.Test.csproj", "{80200111-3CAE-4186-A6AD-64824868754B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FD6BCF6A-A1D3-4251-ADF5-4335B714D930}"
+	ProjectSection(SolutionItems) = preProject
+		stylecop.ruleset = stylecop.ruleset
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
