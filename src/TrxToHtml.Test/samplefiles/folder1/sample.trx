@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="09b693d4-d252-43d3-9be4-2550ed1aa010" name="rschmitt@LAP-0122-20 2020-10-07 17:47:03" runUser="SAMHAMMER\rschmitt" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2020-10-07T17:47:03.8912715+02:00" queuing="2020-10-07T17:47:03.8912723+02:00" start="2020-10-07T17:47:02.7955331+02:00" finish="2020-10-07T17:47:03.9026881+02:00" />
+  <TestSettings name="default" id="621fec0f-bb71-4055-b411-d5f468352ad7">
+    <Deployment runDeploymentRoot="rschmitt_LAP-0122-20_2020-10-07_17_47_03" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="fd5092f1-2254-4f61-b2ef-f65a9e0c631c" testId="b5ecd9ef-cf08-4554-30fb-824ebecd1155" testName="TrxToHtml.Test.ScannerTest.Scanner_MatchesTrxFiles" computerName="LAP-0122-20" duration="00:00:00.0078897" startTime="2020-10-07T17:47:03.7726184+02:00" endTime="2020-10-07T17:47:03.7726916+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fd5092f1-2254-4f61-b2ef-f65a9e0c631c" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="TrxToHtml.Test.ScannerTest.Scanner_MatchesTrxFiles" storage="d:\repos\trxtohtml\src\trxtohtml.test\bin\debug\netcoreapp3.1\trxtohtml.test.dll" id="b5ecd9ef-cf08-4554-30fb-824ebecd1155">
+      <Execution id="fd5092f1-2254-4f61-b2ef-f65a9e0c631c" />
+      <TestMethod codeBase="D:\repos\TrxToHtml\src\TrxToHtml.Test\bin\Debug\netcoreapp3.1\TrxToHtml.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TrxToHtml.Test.ScannerTest" name="Scanner_MatchesTrxFiles" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="b5ecd9ef-cf08-4554-30fb-824ebecd1155" executionId="fd5092f1-2254-4f61-b2ef-f65a9e0c631c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Ergebnisse nicht in einer Liste" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Alle geladenen Ergebnisse" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.0 (64-bit .NET Core 3.1.8)&#xD;
+[xUnit.net 00:00:00.34]   Discovering: TrxToHtml.Test&#xD;
+[xUnit.net 00:00:00.37]   Discovered:  TrxToHtml.Test&#xD;
+[xUnit.net 00:00:00.37]   Starting:    TrxToHtml.Test&#xD;
+[xUnit.net 00:00:00.44]   Finished:    TrxToHtml.Test&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

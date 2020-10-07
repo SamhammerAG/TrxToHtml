@@ -2,7 +2,7 @@
 
 namespace TrxToHtml
 {
-    internal class Options
+    public class Options
     {
         [Option("searchPattern", Default = "*.trx", HelpText = "search pattern to scan for trx files")]
         public string SearchPattern { get; set; } = default!;
@@ -15,5 +15,8 @@ namespace TrxToHtml
 
         [Option("workingDirectory", Default = ".", HelpText = "directory to scan recursive for trx files")]
         public string WorkingDirectory { get; set; } = default!;
+
+        [Option("verbose", Default = false, HelpText = "show some verbose output")]
+        public bool Verbose { get; set; } = default!;
     }
 }

@@ -15,6 +15,8 @@ namespace TrxToHtml
 
         private static void Run(Options options)
         {
+            var scanner = new Scanner(options);
+            var files = scanner.GetFiles();
         }
 
         private static void Fail(IEnumerable<Error> errors)

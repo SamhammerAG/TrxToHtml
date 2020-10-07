@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrxToHtml", "TrxToHtml\TrxToHtml.csproj", "{0605B968-753C-42BD-98B6-AF98D9443969}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrxToHtml", "TrxToHtml\TrxToHtml.csproj", "{0605B968-753C-42BD-98B6-AF98D9443969}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrxToHtml.Test", "TrxToHtml.Test\TrxToHtml.Test.csproj", "{80200111-3CAE-4186-A6AD-64824868754B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0605B968-753C-42BD-98B6-AF98D9443969}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0605B968-753C-42BD-98B6-AF98D9443969}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0605B968-753C-42BD-98B6-AF98D9443969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80200111-3CAE-4186-A6AD-64824868754B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80200111-3CAE-4186-A6AD-64824868754B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80200111-3CAE-4186-A6AD-64824868754B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80200111-3CAE-4186-A6AD-64824868754B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
