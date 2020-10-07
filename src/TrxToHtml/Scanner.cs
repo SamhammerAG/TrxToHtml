@@ -14,14 +14,14 @@ namespace TrxToHtml
             Options = options;
         }
 
-        public List<FileInfo> GetFiles()
+        public IEnumerable<FileInfo> GetFiles()
         {
             var directory = new DirectoryInfo(Options.WorkingDirectory);
             var files = directory.EnumerateFiles(Options.SearchPattern, SearchOption.AllDirectories).ToList();
 
             if (Options.Verbose)
             {
-                Console.WriteLine("scanner matched {0} files", files.Count);
+                Console.WriteLine("scanner matched {0} files.", files.Count);
                 files.ForEach(Console.WriteLine);
             }
 

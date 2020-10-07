@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CommandLine;
 
 namespace TrxToHtml
@@ -16,7 +17,10 @@ namespace TrxToHtml
         private static void Run(Options options)
         {
             var scanner = new Scanner(options);
-            var files = scanner.GetFiles();
+            var parser = new XmlParser(options);
+
+            var files = scanner.GetFiles().ToList();
+            var testRun = parser.GetTestRuns(files).ToList();
         }
 
         private static void Fail(IEnumerable<Error> errors)
