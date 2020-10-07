@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TrxToHtml": {
+      "commandName": "Project",
+      "commandLineArgs": "--help"
+    }
+  }
+}

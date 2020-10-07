@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using CommandLine;
 
 namespace TrxToHtml
 {
@@ -6,7 +8,21 @@ namespace TrxToHtml
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Parser.Default.ParseArguments<Options>(args)
+                .WithParsed(Run)
+                .WithNotParsed(Fail);
+        }
+
+        private static void Run(Options options)
+        {
+        }
+
+        private static void Fail(IEnumerable<Error> errors)
+        {
+            foreach (var error in errors)
+            {
+                Console.Error.WriteLine(error.ToString());
+            }
         }
     }
 }
