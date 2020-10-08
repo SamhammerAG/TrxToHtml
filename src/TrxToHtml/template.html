@@ -5,20 +5,88 @@
     <meta charset="utf-8" />
     <title>Unit Test Results</title>
 </head>
+{{
+    total = 0
+    failed = 0
+    passed = 0
+    for run in TestRuns
+        total = total + run.ResultSummary.Counters.total
+        failed = failed + run.ResultSummary.Counters.failed
+        passed = passed + run.ResultSummary.Counters.passed
+    end
+}}
 <body>
-    {{- for run in TestRuns}}
-    <h1>TestRun Details</h1>
-    <span>Total Tests: {{ run.ResultSummary.Counters.total }}</span>
-    <span>Passed: {{ run.ResultSummary.Counters.passed }}</span>
-    <span>Failed: {{ run.ResultSummary.Counters.failed }}</span>
-    <span>Skipped: {{ run.ResultSummary.Counters.skipped }}</span>
+    <h1>Test Results</h1>
     <p>
-        <h2>Results</h2>
-        {{- for result in run.Results}}
-        <p>{{ result.testName }}</p>
-        {{- end }}
+        <span>Total:</span>&nbsp; <span class="total">{{ total }}</span>
+        <span>Passed:</span>&nbsp; <span class="passed">{{ passed }}</span>
+        <span>Failed:</span>&nbsp; <span class="failed">{{ failed }}</span>
     </p>
-    <br>
-    {{- end }}
+
+    <h2>Failed Results</h2>
+    {{~ for run in TestRuns ~}}
+    {{~ for result in run.Results ~}}
+    {{~ if result.Output != null && result.Output.ErrorInfo != null ~}}
+    <div class="errorinfo">
+        <div class="test">{{ result.testName | html.escape }}</div>
+        <span>Error:</span>
+        <pre>{{ result.Output.ErrorInfo.Message }}</pre>
+        <span>StackTrace:</span>
+        <pre>{{ result.Output.ErrorInfo.StackTrace }}</pre>
+    </div>
+    {{~ end ~}}
+    {{~ end ~}}
+    {{~ end ~}}
+
+    <h2>All Results</h2>
+    <table>
+        {{~ for run in TestRuns ~}}
+        {{~ for result in run.Results ~}}
+        <tr>
+            <td>{{ result.outcome }}</td>
+            <td>{{ result.testName | html.escape }}</td>
+            <td>{{ result.duration }}</td>
+        </tr>
+        {{~ end ~}}
+        {{~ end ~}}
+    </table>
+
+    <style>
+        body {
+            font-family: Calibri, Verdana, Arial, sans-serif;
+            background-color: white;
+            color: black;
+            padding: 0 5px 0 5px;
+        }
+
+        .total {
+            font-weight: bold;
+        }
+
+        .passed {
+            font-weight: bold;
+            color: green;
+        }
+
+        .failed {
+            font-weight: bold;
+            color: red;
+        }
+
+        .errorinfo {
+            background-color: #e6eff7;
+            padding: 5px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+            .errorinfo .test {
+                font-weight: bold;
+            }
+
+            .errorinfo pre {
+                color: red;
+            }
+    </style>
 </body>
 </html>
