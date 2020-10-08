@@ -4,22 +4,22 @@ namespace TrxToHtml
 {
     public class Options
     {
-        [Option("searchPattern", Default = "*.trx", HelpText = "search pattern to scan for trx files")]
+        [Option('s', "searchPattern", Default = "*.trx", HelpText = "search pattern to scan for trx files")]
         public string SearchPattern { get; set; } = default!;
 
-        [Option("outputFileName", Default = "TestResults.html", HelpText = "name for the html file")]
+        [Option('n', "outputFileName", Default = "TestResults.html", HelpText = "name for the html file")]
         public string OutputFilename { get; set; } = default!;
 
-        [Option("outputDirectory", Default = ".", HelpText = "target directory for the html file")]
+        [Option('o', "outputDirectory", Default = ".", HelpText = "target directory for the html file")]
         public string OutputDirectory { get; set; } = default!;
 
-        [Option("workingDirectory", Default = ".", HelpText = "directory to scan recursive for trx files")]
+        [Option('w', "workingDirectory", Default = ".", HelpText = "directory to scan recursive for trx files")]
         public string WorkingDirectory { get; set; } = default!;
 
-        [Option("templateFile", Default = null, HelpText = "path of template file used to create the html file")]
+        [Option('t', "templateFile", Default = null, HelpText = "path of template file used to create the html file")]
         public string TemplateFile { get; set; } = null;
 
-        [Option("verbose", Default = false, HelpText = "show some verbose output")]
+        [Option('v', "verbose", Default = false, HelpText = "show some verbose output")]
         public bool Verbose { get; set; } = default!;
     }
 }
