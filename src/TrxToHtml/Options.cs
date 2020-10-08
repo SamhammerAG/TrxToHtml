@@ -16,6 +16,9 @@ namespace TrxToHtml
         [Option("workingDirectory", Default = ".", HelpText = "directory to scan recursive for trx files")]
         public string WorkingDirectory { get; set; } = default!;
 
+        [Option("templateFile", Default = null, HelpText = "path of template file used to create the html file")]
+        public string TemplateFile { get; set; } = null;
+
         [Option("verbose", Default = false, HelpText = "show some verbose output")]
         public bool Verbose { get; set; } = default!;
     }

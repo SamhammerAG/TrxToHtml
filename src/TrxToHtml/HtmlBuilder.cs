@@ -10,6 +10,13 @@ namespace TrxToHtml
 {
     public class HtmlBuilder
     {
+        public Options Options { get; }
+
+        public HtmlBuilder(Options options)
+        {
+            Options = options;
+        }
+
         public string GetEmbeddedTemplate(string filename = "template.html")
         {
             var embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
@@ -19,9 +26,17 @@ namespace TrxToHtml
             return reader.ReadToEnd();
         }
 
+        public string GetExternalTemplate()
+        {
+            var filePath = Path.GetFullPath(Options.TemplateFile, Directory.GetCurrentDirectory());
+            using var stream = File.OpenRead(filePath);
+            using var reader = new StreamReader(stream, Encoding.UTF8);
+            return reader.ReadToEnd();
+        }
+
         public string GetHtml(List<TestRun> testRuns)
         {
-            var textTemplate = GetEmbeddedTemplate();
+            var textTemplate = Options.TemplateFile == null ? GetEmbeddedTemplate() : GetExternalTemplate();
             return ParseHtml(testRuns, textTemplate);
         }
 

@@ -25,7 +25,7 @@ namespace TrxToHtml.Test
                 }
             };
 
-            var html = new HtmlBuilder().ParseHtml(testRuns, textTemplate);
+            var html = new HtmlBuilder(new Options()).ParseHtml(testRuns, textTemplate);
 
             html.Should().Be("test1;test2;");
         }

@@ -18,7 +18,7 @@ namespace TrxToHtml
         {
             var scanner = new FileScanner(options);
             var parser = new XmlParser(options);
-            var htmlBuilder = new HtmlBuilder();
+            var htmlBuilder = new HtmlBuilder(options);
             var writer = new FileWriter(options);
 
             var files = scanner.GetFiles().ToList();
