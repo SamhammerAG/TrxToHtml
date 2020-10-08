@@ -17,46 +17,59 @@
 }}
 <body>
     <h1>Test Results</h1>
-    <p>
+    <p class="summary">
         <span>Total:</span>&nbsp; <span class="total">{{ total }}</span>
         <span>Passed:</span>&nbsp; <span class="passed">{{ passed }}</span>
         <span>Failed:</span>&nbsp; <span class="failed">{{ failed }}</span>
     </p>
 
     <h2>Failed Results</h2>
+    <div class="failed-results">
     {{~ for run in TestRuns ~}}
     {{~ for result in run.Results ~}}
     {{~ if result.Output != null && result.Output.ErrorInfo != null ~}}
-    <div class="errorinfo">
-        <div class="test">{{ result.testName | html.escape }}</div>
-        <span>Error:</span>
-        <pre>{{ result.Output.ErrorInfo.Message }}</pre>
-        <span>StackTrace:</span>
-        <pre>{{ result.Output.ErrorInfo.StackTrace }}</pre>
+        <div class="result">
+            <div class="testname">{{ result.testName | html.escape }}</div>
+            <p>Error:</p>
+            <pre class="error">{{ result.Output.ErrorInfo.Message }}</pre>
+            <p>StackTrace:</p>
+            <pre class="error">{{ result.Output.ErrorInfo.StackTrace }}</pre>
+        </div>
+    {{~ end ~}}
+    {{~ end ~}}
+    {{~ end ~}}
     </div>
-    {{~ end ~}}
-    {{~ end ~}}
-    {{~ end ~}}
 
     <h2>All Results</h2>
-    <table>
+    <table class="all-results" cellspacing="0" cellpadding="0">
         {{~ for run in TestRuns ~}}
         {{~ for result in run.Results ~}}
-        <tr>
+        <tr class="result">
+            <td>
+                {{~ if result.outcome == 'Failed' ~}}
+                <span class="failed">✘</span>
+                {{~ else if result.outcome == 'Passed' ~}}
+                <span class="passed">✔</span>
+                {{~ else ~}}
+                <span>-</span>
+                {{~ end ~}}
+            </td>
             <td>{{ result.outcome }}</td>
             <td>{{ result.testName | html.escape }}</td>
-            <td>{{ result.duration }}</td>
+            <td class="duration">{{ result.duration | (timespan.parse).TotalMilliseconds | math.ceil }}ms</td>
         </tr>
         {{~ end ~}}
         {{~ end ~}}
     </table>
 
     <style>
+        /* global */
         body {
             font-family: Calibri, Verdana, Arial, sans-serif;
             background-color: white;
             color: black;
-            padding: 0 5px 0 5px;
+            padding: 0;
+            margin: 5px 25px;          
         }
 
         .total {
@@ -64,29 +77,59 @@
         }
 
         .passed {
-            font-weight: bold;
+            font-weight: bold; 
             color: green;
         }
 
         .failed {
-            font-weight: bold;
+            font-weight: bold; 
             color: red;
         }
 
-        .errorinfo {
-            background-color: #e6eff7;
-            padding: 5px;
-            margin-left: 20px;
-            margin-bottom: 10px;
+        .error {
+            color: red;
         }
 
-            .errorinfo .test {
-                font-weight: bold;
-            }
+        /* summary */
+        .summary {
+            margin-left: 20px;
+            font-size: x-large;
+        }
 
-            .errorinfo pre {
-                color: red;
-            }
+        /* failed */
+        .failed-results {
+            margin-left: 20px;
+        }
+
+        .failed-results .result {
+            background-color: #e6eff7;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .failed-results .result .testname {
+            font-weight: bold;
+        }
+
+        /* all */
+        table.all-results {
+            width: 100%;
+            padding-left: 20px;
+            border-collapse: separate;
+            border-spacing: 0 5px;            
+        }
+
+        table.all-results tr.result {
+            background-color: #e6eff7;
+        }
+
+        table.all-results tr.result td {
+            padding: 5px;
+        }
+
+        table.all-results tr.result td.duration {
+            text-align: right;
+        }
     </style>
 </body>
 </html>

@@ -19,8 +19,8 @@
         [System.Xml.Serialization.XmlAttributeAttribute]
         public string computerName { get; set; }
 
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType = "time")]
-        public System.DateTime duration { get; set; }
+        [System.Xml.Serialization.XmlAttributeAttribute]
+        public string duration { get; set; }
 
         [System.Xml.Serialization.XmlAttributeAttribute]
         public System.DateTime startTime { get; set; }
