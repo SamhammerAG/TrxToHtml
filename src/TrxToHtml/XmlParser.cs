@@ -27,7 +27,11 @@ namespace TrxToHtml
 
             foreach (var file in files)
             {
-                Console.WriteLine(file);
+                if (Options.Verbose)
+                {
+                    Console.WriteLine(file);
+                }
+
                 yield return GetTestResult(file);
             }
         }
