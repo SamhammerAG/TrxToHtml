@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace TrxToHtml
 {
-    public class Scanner
+    public class FileScanner
     {
         private Options Options { get; }
 
-        public Scanner(Options options)
+        public FileScanner(Options options)
         {
             Options = options;
         }
