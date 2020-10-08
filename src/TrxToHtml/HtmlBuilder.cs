@@ -17,7 +17,7 @@ namespace TrxToHtml
             Options = options;
         }
 
-        public string GetEmbeddedTemplate(string filename = "template.html")
+        public string GetEmbeddedTemplate(string filename = "Template.html")
         {
             var embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
             var embeddedFile = embeddedProvider.GetFileInfo(filename);

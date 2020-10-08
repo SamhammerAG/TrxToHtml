@@ -6,10 +6,19 @@
     <title>Unit Test Results</title>
 </head>
 <body>
-{{- for run in TestRuns}}
-    {{- for result in run.Results}}
-        <span>{{ result.testName }}</span>
+    {{- for run in TestRuns}}
+    <h1>TestRun Details</h1>
+    <span>Total Tests: {{ run.ResultSummary.Counters.total }}</span>
+    <span>Passed: {{ run.ResultSummary.Counters.passed }}</span>
+    <span>Failed: {{ run.ResultSummary.Counters.failed }}</span>
+    <span>Skipped: {{ run.ResultSummary.Counters.skipped }}</span>
+    <p>
+        <h2>Results</h2>
+        {{- for result in run.Results}}
+        <p>{{ result.testName }}</p>
+        {{- end }}
+    </p>
+    <br>
     {{- end }}
-{{- end }}
 </body>
 </html>

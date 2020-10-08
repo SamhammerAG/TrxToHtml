@@ -7,7 +7,7 @@ namespace TrxToHtml
         [Option("searchPattern", Default = "*.trx", HelpText = "search pattern to scan for trx files")]
         public string SearchPattern { get; set; } = default!;
 
-        [Option("outputFileName", Default = "testresults.html", HelpText = "name for the html file")]
+        [Option("outputFileName", Default = "TestResults.html", HelpText = "name for the html file")]
         public string OutputFilename { get; set; } = default!;
 
         [Option("outputDirectory", Default = ".", HelpText = "target directory for the html file")]
