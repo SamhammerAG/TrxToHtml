@@ -17,6 +17,11 @@ namespace TrxToHtml
             var dirPath = Path.GetFullPath(Options.OutputDirectory, Directory.GetCurrentDirectory());
             var filePath = Path.Combine(dirPath, Options.OutputFilename);
 
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+
             File.WriteAllText(filePath, html, Encoding.UTF8);
             return filePath;
         }
