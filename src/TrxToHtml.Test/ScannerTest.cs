@@ -8,7 +8,7 @@ namespace TrxToHtml.Test
         [Fact]
         public void Scanner_MatchesTrxFiles()
         {
-            var options = new Options { WorkingDirectory = ".", SearchPattern = "*.trx" };
+            var options = new Options { WorkingDirectory = ".", SearchPattern = "*.trx", All = true };
             var scanner = new FileScanner(options);
 
             var files = scanner.GetFiles();

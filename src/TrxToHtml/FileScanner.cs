@@ -16,7 +16,21 @@ namespace TrxToHtml
         public IEnumerable<FileInfo> GetFiles()
         {
             var directory = new DirectoryInfo(Options.WorkingDirectory);
-            return directory.EnumerateFiles(Options.SearchPattern, SearchOption.AllDirectories).ToList();
+            var files = directory.EnumerateFiles(Options.SearchPattern, SearchOption.AllDirectories).ToList();
+
+            if (Options.All)
+            {
+                return files;
+            }
+
+            return FilterByLatest(files);
+        }
+
+        public IEnumerable<FileInfo> FilterByLatest(List<FileInfo> files)
+        {
+            return files
+                .GroupBy(f => f.Directory!.FullName)
+                .Select(g => g.OrderBy(f => f.LastWriteTime).Last());
         }
     }
 }

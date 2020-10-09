@@ -18,5 +18,8 @@ namespace TrxToHtml
 
         [Option('t', "templateFile", Default = null, HelpText = "path of template file used to create the html file")]
         public string TemplateFile { get; set; } = null;
+
+        [Option('a', "all", Default = false, HelpText = "process all matched trx files, otherwise only latest trx file per folder")]
+        public bool All { get; set; } = false;
     }
 }
