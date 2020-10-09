@@ -18,8 +18,5 @@ namespace TrxToHtml
 
         [Option('t', "templateFile", Default = null, HelpText = "path of template file used to create the html file")]
         public string TemplateFile { get; set; } = null;
-
-        [Option('v', "verbose", Default = false, HelpText = "show some verbose output")]
-        public bool Verbose { get; set; } = default!;
     }
 }

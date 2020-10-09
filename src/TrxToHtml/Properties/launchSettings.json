@@ -2,7 +2,7 @@
   "profiles": {
     "TrxToHtml": {
       "commandName": "Project",
-      "commandLineArgs": "--verbose=true --workingDirectory=..\\..\\..\\..\\TrxToHtml.Test\\samplefiles --outputDirectory=..\\..\\..\\"
+      "commandLineArgs": "--workingDirectory=..\\..\\..\\..\\TrxToHtml.Test\\samplefiles --outputDirectory=..\\..\\..\\"
     }
   }
 }
