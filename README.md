@@ -5,7 +5,9 @@ With this tool you can convert trx text results into an readable html report.
 ![Screenshot](TestResults.png)
 
 ## Installation
+```shell
 dotnet tool install -g Samhammer.TrxToHtml
+```
 
 ## Usage
 generate trx results (*.trx) with dotnet test and then just execute trx-to-html in the same/parent folder to generate report (TestResults.html).
