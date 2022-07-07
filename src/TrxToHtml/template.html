@@ -9,10 +9,14 @@
     total = 0
     failed = 0
     passed = 0
+    time = 0
     for run in TestRuns
         total = total + run.ResultSummary.Counters.total
         failed = failed + run.ResultSummary.Counters.failed
         passed = passed + run.ResultSummary.Counters.passed
+        for result in run.Results
+            time = time + (timespan.parse result.duration).TotalMilliseconds
+        end
     end
 }}
 <body>
@@ -21,6 +25,7 @@
         <span>Total:</span>&nbsp; <span class="total">{{ total }}</span>
         <span>Passed:</span>&nbsp; <span class="passed">{{ passed }}</span>
         <span>Failed:</span>&nbsp; <span class="failed">{{ failed }}</span>
+        <span>Time:</span>&nbsp; <span class="total">{{ time | math.format "0s 000ms"  }}</span>
     </p>
 
     {{~ if failed > 0 ~}}
@@ -58,7 +63,7 @@
             </td>
             <td>{{ result.outcome }}</td>
             <td>{{ result.testName | html.escape }}</td>
-            <td class="duration">{{ result.duration | (timespan.parse).TotalMilliseconds | math.ceil }}ms</td>
+            <td class="duration">{{ (timespan.parse result.duration).TotalMilliseconds }}ms</td>
         </tr>
         {{~ end ~}}
         {{~ end ~}}
