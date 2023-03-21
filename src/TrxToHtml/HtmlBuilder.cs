@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Text;
 using Microsoft.Extensions.FileProviders;
 using Scriban;
+using Scriban.Runtime;
 using TrxToHtml.Models;
 
 namespace TrxToHtml
@@ -42,8 +43,23 @@ namespace TrxToHtml
 
         public string ParseHtml(List<TestRun> testRuns, string textTemplate)
         {
+            var model = new { TestRuns = testRuns };
+            MemberRenamerDelegate memberRenamer = member => member.Name;
+
+            var scriptObject = new ScriptObject();
+            scriptObject.Import(model, renamer: memberRenamer, filter: null);
+
+            var context = new TemplateContext
+            {
+                MemberRenamer = memberRenamer,
+                MemberFilter = null
+            };
+
+            context.PushGlobal(scriptObject);
+            context.LoopLimit = 100000;
+
             var template = Template.Parse(textTemplate);
-            return template.Render(new { TestRuns = testRuns }, member => member.Name);
+            return template.Render(context);
         }
     }
 }
